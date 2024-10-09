@@ -3,49 +3,190 @@
 <head>
   <meta charset="utf-8">
   <title>My First Page</title>
-  <link rel="stylesheet" type="text/css" href="ITM780 CSS File.css">
+  <link rel="stylesheet" type="text/css" href="ITM780 CSS File.css" />
+
+  <style>
+    /* Basic CSS for the navigation menu */
+    nav {
+      background-color: #333;
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    nav ul {
+      list-style-type: none; /* Remove bullets */
+      padding: 0;
+      margin: 0;
+      display: flex; /* Horizontal alignment */
+      justify-content: center; /* Center the menu */
+    }
+
+    nav ul li {
+      margin: 0 15px; /* Space between menu items */
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: white;
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #575757;
+    }
+
+    /* Styles for onmouseover/onmouseout events */
+    .hovered {
+      background-color: #ff6f61 !important;
+    }
+
+    /* Modal styling */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .modal-content img {
+      width: 70%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Modal functionality for image enlargement
+      const modal = document.getElementById("imageModal");
+      const img = document.getElementById("myImage");
+      const modalImg = document.getElementById("modalImage");
+      const closeBtn = document.getElementsByClassName("close")[0];
+
+      img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src; // Set modal image source to clicked image
+      }
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none"; // Close modal if user clicks outside the modal
+        }
+      }
+    });
+  </script>
 </head>
+
 <body>
-    <h1>My First Page</h1>
-    <h2>Education</h2>
-    <hr>
-    <ol>
-        <li>Erindale Secondary School (2016 - 2020)</li>
-        <li>Ryerson University (2021 - Present)</li>
-    </ol>
-    <hr>
 
-    <h3>Courses</h3>
-    <p>ITM780 is a course focused on the fundamentals of web design along with learning CSS and Javascript. A course that I feel has been most useful to me has been ITM415 as it was the course that I feel made me understand and potentially see as a possible interest for me when looking for jobs.</p>
-    <hr>
+<!-- Navigation Menu -->
+<nav>
+  <ul>
+    <li><a href="about.html" target="_blank">About</a></li>
+    <li><a href="contact.html" target="_blank">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/ali-syed-335554236/" target="_blank">LinkedIn</a></li>
+  </ul>
+</nav>
 
-    <h3>Educational Awards</h3>
-    <ul>
-        <li>Tableau/Power BI Certificate</li>
-    </ul>
+<!-- Rest of your content -->
+<h1>My First Page</h1>
 
+<!-- Image with modal functionality -->
+<div id="imageContainer">
+  <img id="myImage" src="My_Pic.jpg" alt="A photo of Ali Syed" style="width:200px; cursor:pointer;">
+</div>
 
-    <!-- Div around the links and their descriptions organized in a table -->
-    <div class="table-container">
-        <!-- Row 1 -->
-        <div class="table-row">
-            <div class="table-cell links">
-                <a href="https://www.youtube.com">Visit Youtube.com</a><br>
-            </div>
-            <div class="table-cell descriptions">
-                <p>Link 1 Description: Youtube is a video-sharing platform where users can watch, like, share, comment, and upload their own videos.</p>
-            </div>
-        </div>
+<!-- Modal to enlarge image -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content">
+    <img id="modalImage" alt="Enlarged view of the image">
+  </div>
+</div>
 
-        <!-- Row 2 -->
-        <div class="table-row">
-            <div class="table-cell links">
-                <a href="https://www.w3schools.com">Visit w3schools.com</a><br>
-            </div>
-            <div class="table-cell descriptions">
-                <p>Link 2 Description: W3Schools offers free tutorials and references for web development languages like HTML, CSS, JavaScript, and more.</p>
-            </div>
-        </div>
+<!-- Button to prompt the user -->
+<button id="promptButton">Enter your name</button>
+<p id="output"></p>
+
+<script src="Button.js"></script>
+
+<!-- Content: Education -->
+<h2>Education</h2>
+<hr>
+<ol>
+  <li>Erindale Secondary School (2016 - 2020)</li>
+  <li>Ryerson University (2021 - Present)</li>
+</ol>
+<hr>
+
+<!-- Courses Section -->
+<h3>Courses</h3>
+<p>ITM780 is a course focused on the fundamentals of web design along with learning CSS and Javascript.</p>
+<hr>
+
+<!-- Educational Awards Section -->
+<h3>Educational Awards</h3>
+<ul>
+  <li>Tableau/Power BI Certificate</li>
+</ul>
+
+<!-- Links Table -->
+<div class="table-container">
+  <div class="table-row">
+    <div class="table-cell links">
+      <a href="https://www.youtube.com">Visit Youtube.com</a><br>
     </div>
+    <div class="table-cell descriptions">
+      <p>Youtube is a video-sharing platform where users can watch, like, share, comment, and upload their own videos.</p>
+    </div>
+  </div>
+
+  <div class="table-row">
+    <div class="table-cell links">
+      <a href="https://www.w3schools.com">Visit w3schools.com</a><br>
+    </div>
+    <div class="table-cell descriptions">
+      <p>W3Schools offers free tutorials and references for web development languages like HTML, CSS, JavaScript, and more.</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="stylesheet" type="text/css" href="ITM780 CSS File.css">
+  <style>
+    /* Styling the contact form */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-family: 'Times New Roman', sans-serif;
+      font-size: 36pt;
+      color: #333;
+    }
+
+    h2 {
+      font-family: 'Arial', sans-serif;
+      font-size: 28pt;
+      color: #444;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16pt;
+      width: 100%;
+    }
+
+    textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 18pt;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #444;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- Header Section -->
+<header>
+  <h1>Contact Me</h1>
+</header>
+
+<!-- Content Section -->
+<div class="content">
+
+  <!-- Contact Form Section -->
+  <h2>Get In Touch</h2>
+  <p>If you have any questions, feel free to send me a message using the form below:</p>
+  
+  <form action="submit_contact_form.php" method="POST">
+    <!-- Name Field -->
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <!-- Email Field -->
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <!-- Message Field -->
+    <label for="message">Your Message:</label>
+    <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Send Message">
+  </form>
+
+</div>
+
+
+</body>
+</html>
