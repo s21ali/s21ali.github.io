@@ -1,0 +1,80 @@
+/* Styling for the headers */
+h1 {
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 32pt;
+    color: #00cc99;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'CopperPlate', sans-serif;
+    font-size: 24pt;
+    color: #ffe680;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Papyrus', sans-serif;
+    font-size: 18pt;
+    color: #ff9900;
+    font-weight: normal;
+}
+
+/* General body styling */
+body {
+    background-color: SlateBlue;
+    color: #ccff66;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    margin: 12pt;
+}
+
+/* Styling for links */
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: #cc9900;
+}
+
+a:active {
+    color: red;
+}
+
+/* Table layout for organizing links and descriptions */
+.table-container {
+    display: table;
+    width: 100%;
+    color: #666699;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+    padding: 10px;
+    vertical-align: top;
+    border: 1px solid black; /* Add border around table cells */
+}
+
+.links {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.descriptions {
+    background-color: #e0e0ff;
+    padding: 10px;
+}
+
+/* Styling the divs */
+.content-wrapper {
+    margin-bottom: 20px;
+}
