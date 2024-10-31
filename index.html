@@ -6,10 +6,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
 
   <style>
-    /* Font & background */
+    /* Global font & background */
     body {
         background-color: #262626;
-        color: #e7bf2f;
+        color: #eec626;
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
         margin: 0;
@@ -19,7 +19,7 @@
     /* Navigation bar styling */
     nav {
         background-color: #1a1a1a;
-        color: #efde22;
+        color: #e7ca27;
         position: fixed;
         width: 100%;
         top: 0;
@@ -53,79 +53,68 @@
         background-color: #333333;
     }
 
- /* Image container styling */
- #imageContainer img {
-        width: 120px; /* Smaller size for initial display */
+    /* Image container styling */
+    #imageContainer img {
+        width: 120px;
         cursor: pointer;
         border-radius: 5px;
-        transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+        transition: transform 0.3s ease;
     }
 
     #imageContainer img:hover {
-        transform: scale(1.05); /* Slight zoom on hover */
+        transform: scale(1.05);
     }
 
-/* Modal styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    animation: fadeIn 0.5s; /* Executes smooth fade in effect */
-}
+    /* Modal styling */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        animation: fadeIn 0.5s;
+    }
 
-/* Keyframe for fade-in animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    padding: 10px;
-    border-radius: 10px;
-    transform: scale(0.9);
-    transition: transform 0.3s ease; /* Executes the pop up effect smoothly */
-}
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        padding: 10px;
+        border-radius: 10px;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
 
-.modal-content img {
-    width: 50%;
-    height: auto;
-    border-radius: 5px;
-}
+    .modal-content img {
+        width: 50%;
+        height: auto;
+        border-radius: 5px;
+    }
 
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #5500ff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #5500ff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
 
-.close:hover {
-    color: #7f33ff;
-}
+    .close:hover {
+        color: #7f33ff;
+    }
 
-/* This will add a transition effect on modal appearance */
-.modal-content {
-    transform: scale(0.9); /* Initial scale */
-}
-
-.modal.active .modal-content {
-    transform: scale(1); /* Executes pop-up effect */
-}
-
-    
     /* Main content styling */
     .content-style {
         max-width: 900px;
@@ -149,7 +138,7 @@
     /* Button styling */
     #promptButton {
         background-color: #6666ff;
-        color: rgb(244, 207, 39);
+        color: rgb(241, 203, 30);
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
@@ -163,68 +152,10 @@
         background-color: #7f33ff;
     }
 
-    /* Table layout for links and descriptions */
-    .table-container {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .table-row {
-        display: flex;
-        justify-content: space-between;
-        background-color: #262626;
-        padding: 10px;
-        border-radius: 8px;
-    }
-
-    .table-cell {
-        width: 45%;
-    }
-
-    /* Modal styling */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-    }
-
-    .modal-content img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-    }
-
-    .close {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #5500ff;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover {
-        color: #7f33ff;
-    }
-
     /* Footer styling */
     footer {
         background-color: #1a1a1a;
-        color: #f4df2b;
+        color: #eac42d;
         text-align: center;
         padding: 15px 0;
         font-size: 14px;
@@ -232,7 +163,6 @@
     }
   </style>
 
-  <!--Button for javascript function-->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const modal = document.getElementById("imageModal");
@@ -263,15 +193,12 @@
   </script>
 </head>
 
-
 <body>
 
-    <!--Link to javascript for submittion functioning-->
-    <script src="Submittion .js"></script>
-
-<!-- Navigation Menu for main site -->
+<!-- Navigation Menu -->
 <nav>
   <ul>
+    <!-- Update href to the correct paths of your files -->
     <li><a href="about.html" target="_blank">About</a></li>
     <li><a href="contact.html" target="_blank">Contact</a></li>
     <li><a href="https://www.linkedin.com/in/ali-syed-335554236/" target="_blank">LinkedIn</a></li>
@@ -279,8 +206,7 @@
 </nav>
 
 <!-- Main Content Style -->
-<div class="content-style">  
-    
+<div class="content-style">
   <h1>My Homepage</h1>
 
   <!-- Image with modal functionality -->
@@ -296,7 +222,7 @@
     </div>
   </div>
 
-  <!-- Button to enter user's name -->
+  <!-- Button to prompt the user -->
   <button id="promptButton">Enter your name</button>
   <p id="output"></p>
 
@@ -343,7 +269,7 @@
 
 <!-- Footer -->
 <footer>
-
+  &copy; 2024 Ali Syed. All rights reserved.
 </footer>
 
 </body>
