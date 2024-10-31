@@ -4,42 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Me</title>
-  <link rel="stylesheet" type="text/css" href="ITM780 CSS File.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
   <style>
-    /* Styling the contact form */
+    /* Styling */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Roboto', sans-serif;
+      background-color: #292828; /* Black background */
+      color: #f3ca5b; /* Yellow text color */
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: #333;
-      color: white;
+      background-color: #212121; /* Purple theme for header */
+      color: #6666ff;
       padding: 20px 0;
       text-align: center;
+      font-size: 36px;
+      font-weight: 700;
     }
 
     .content {
       max-width: 800px;
       margin: 20px auto;
       padding: 20px;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      font-family: 'Times New Roman', sans-serif;
-      font-size: 36pt;
-      color: #333;
+      background-color: #1f1f1f;
+      box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+      border-radius: 10px;
+      color: #f3ca5b;
     }
 
     h2 {
-      font-family: 'Arial', sans-serif;
-      font-size: 28pt;
-      color: #444;
+      color: #f3ca5b;
+      font-weight: 700;
     }
 
     form {
@@ -47,52 +44,94 @@
       flex-direction: column;
     }
 
-    label {
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #444;
-    }
-
-    input[type="text"], input[type="email"], textarea {
-      padding: 10px;
+    .form-section {
+      padding: 20px;
+      background-color: #1a1a1a;
       margin-bottom: 20px;
-      border: 1px solid #ccc;
+      border: 2px solid #6666ff; /* Purple outline */
+      border-radius: 8px;
+      color: #f3ca5b;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #f3ca5b;
+    }
+
+    input[type="text"], input[type="email"], input[type="date"], textarea, select, input[type="submit"], input[type="button"] {
+      padding: 10px;
+      margin-bottom: 10px;
       border-radius: 5px;
-      font-size: 16pt;
+      font-size: 16px;
       width: 100%;
+      border: 1px solid #302038d7;
+      background-color: #171717;
+      color: #f3ca5b;
     }
 
-    textarea {
-      height: 150px;
-      resize: vertical;
-    }
-
-    input[type="submit"] {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 15px;
-      font-size: 18pt;
+    input[type="submit"], input[type="button"] {
+      background-color: #6666ff; /* Purple button */
+      color: #f3ca5b;
       cursor: pointer;
-      border-radius: 5px;
       transition: background-color 0.3s ease;
     }
 
-    input[type="submit"]:hover {
-      background-color: #444;
+    input[type="submit"]:hover, input[type="button"]:hover {
+      background-color: #321aa0;
     }
 
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      position: relative;
-      bottom: 0;
+    .age-range {
+      margin-bottom: 25px;
+    }
+
+    .age-range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #f3ca5b;
+      margin-top: 5px;
+    }
+
+    input[type="range"] {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+    }
+
+    table {
       width: 100%;
+      border-collapse: collapse;
+      color: #f3ca5b;
     }
 
+    th, td {
+      text-align: center;
+      padding: 8px;
+      border: 1px solid #6666ff;
+    }
   </style>
+
+  <script>
+    // Function to save form data into localStorage
+    function saveData() {
+      localStorage.setItem("name", document.getElementById("name").value);
+      localStorage.setItem("email", document.getElementById("email").value);
+      localStorage.setItem("appointmentDate", document.getElementById("appointmentDate").value);
+      localStorage.setItem("gender", document.querySelector('input[name="gender"]:checked')?.value);
+      localStorage.setItem("ageGroup", document.getElementById("ageGroup").value);
+      localStorage.setItem("socialMedia", Array.from(document.querySelectorAll('input[name="socialMedia"]:checked')).map(el => el.value).join(", "));
+      localStorage.setItem("portfolioAsset", document.getElementById("MostImportantAsset").value);
+      localStorage.setItem("message", document.getElementById("message").value);
+      alert("Form data saved successfully!");
+    }
+
+    // Function to clear form data and reset all fields
+    function clearForm() {
+      document.querySelector("form").reset(); // Reset form fields
+      localStorage.clear(); // Clear localStorage
+      alert("Form cleared!");
+    }
+  </script>
 </head>
 
 <body>
@@ -104,30 +143,117 @@
 
 <!-- Content Section -->
 <div class="content">
-
-  <!-- Contact Form Section -->
   <h2>Get In Touch</h2>
   <p>If you have any questions, feel free to send me a message using the form below:</p>
   
-  <form action="submit_contact_form.php" method="POST">
-    <!-- Name Field -->
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+  <form onsubmit="saveData(); return false;">
+    <!-- Full Name Section -->
+    <div class="form-section">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+    </div>
 
-    <!-- Email Field -->
-    <label for="email">Email Address:</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <!-- Email Section -->
+    <div class="form-section">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
 
-    <!-- Message Field -->
-    <label for="message">Your Message:</label>
-    <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+    <!-- Appointment Date Section -->
+    <div class="form-section">
+      <label for="appointmentDate">Preferred Appointment Date:</label>
+      <input type="date" id="appointmentDate" name="appointmentDate" required>
+    </div>
 
-    <!-- Submit Button -->
-    <input type="submit" value="Send Message">
+    <!-- Gender Radio Group Section -->
+    <div class="form-section">
+      <label>Gender:</label>
+      <label><input type="radio" name="gender" value="male" required> Male</label>
+      <label><input type="radio" name="gender" value="female"> Female</label>
+      <label><input type="radio" name="gender" value="other"> Other</label>
+    </div>
+
+    <!-- Age Group Scale Section with Labels -->
+    <div class="form-section age-range">
+      <label for="ageGroup">Age Group:</label>
+      <input type="range" id="ageGroup" name="ageGroup" min="1" max="5" step="1">
+      <div class="age-range-labels">
+        <span>18-24</span>
+        <span>25-34</span>
+        <span>35-44</span>
+        <span>45-54</span>
+        <span>55+</span>
+      </div>
+    </div>
+
+    <!-- Checkbox Grid for Page Rating Section -->
+    <div class="form-section">
+      <label>Rate the following aspects of this page:</label>
+      <table>
+        <tr>
+          <th></th>
+          <th>Poor</th>
+          <th>Average</th>
+          <th>Good</th>
+          <th>Excellent</th>
+        </tr>
+        <tr>
+          <td>Loading Speed</td>
+          <td><input type="checkbox" name="loadingSpeed" value="Poor"></td>
+          <td><input type="checkbox" name="loadingSpeed" value="Average"></td>
+          <td><input type="checkbox" name="loadingSpeed" value="Good"></td>
+          <td><input type="checkbox" name="loadingSpeed" value="Excellent"></td>
+        </tr>
+        <tr>
+          <td>Ease of Use on Mobile</td>
+          <td><input type="checkbox" name="mobileEase" value="Poor"></td>
+          <td><input type="checkbox" name="mobileEase" value="Average"></td>
+          <td><input type="checkbox" name="mobileEase" value="Good"></td>
+          <td><input type="checkbox" name="mobileEase" value="Excellent"></td>
+        </tr>
+        <tr>
+          <td>Ease of Navigation</td>
+          <td><input type="checkbox" name="navigationEase" value="Poor"></td>
+          <td><input type="checkbox" name="navigationEase" value="Average"></td>
+          <td><input type="checkbox" name="navigationEase" value="Good"></td>
+          <td><input type="checkbox" name="navigationEase" value="Excellent"></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Social Media Preference Checkbox Section -->
+    <div class="form-section">
+      <label>Preferred Social Media Platform:</label>
+      <label><input type="checkbox" name="socialMedia" value="Instagram"> Instagram</label>
+      <label><input type="checkbox" name="socialMedia" value="LinkedIn"> LinkedIn</label>
+      <label><input type="checkbox" name="socialMedia" value="X"> X</label>
+      <label><input type="checkbox" name="socialMedia" value="WhatsApp"> WhatsApp</label>
+    </div>
+
+    <!-- Important Assets Dropdown Section -->
+    <div class="form-section">
+      <label for="MostImportantAsset">Most Important Asset in Portfolio:</label>
+      <select id="MostImportantAsset" name="MostImportantAsset">
+        <option value="Projects">Projects</option>
+        <option value="Certificates">Certificates</option>
+        <option value="Work Experience">Work Experience</option>
+      </select>
+    </div>
+
+    <!-- Message Section -->
+    <div class="form-section">
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+    </div>
+
+    <!-- Submit and Clear Buttons Section -->
+    <div class="form-section">
+      <input type="submit" value="Send Message">
+      <input type="button" value="Clear Form" onclick="clearForm()">
+    </div>
+
   </form>
-
 </div>
-
 
 </body>
 </html>
