@@ -1,0 +1,23 @@
+.hire-me-button {
+  border: 3px solid #eec626;
+  background-color: #1a1a1a;
+  color: rgb(241, 203, 30);
+  padding: 35px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 3px;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.hire-me-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(111, 111, 17, 0.5);
+  background-color: #333333;
+}
+
+.hire-me-button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 8px rgba(55, 55, 7, 0.3);
+}

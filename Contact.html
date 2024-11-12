@@ -4,136 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Me</title>
+  
+  <!-- Linking Bootstrap CSS for responsive design -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Linking Roboto font from Google Fonts for a consistent look across pages -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+
   <style>
-    /* Styling */
+    /* Global theme styling */
     body {
+      background-color: #75929b;
+      color: #eae7d6;
       font-family: 'Roboto', sans-serif;
-      background-color: #292828; /* Black background */
-      color: #f3ca5b; /* Yellow text color */
+      font-size: 16px;
       margin: 0;
       padding: 0;
     }
 
+    /* Header styling */
     header {
-      background-color: #212121; /* Purple theme for header */
-      color: #6666ff;
+      background-color: #1a1a1a;
+      color: #f8f7f3;
       padding: 20px 0;
       text-align: center;
-      font-size: 36px;
-      font-weight: 700;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     }
 
+    /* Content container styling */
     .content {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #1f1f1f;
-      box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+      background-color: #1a1a1a;
       border-radius: 10px;
-      color: #f3ca5b;
+      box-shadow: 0px 4px 8px rgba(85, 0, 255, 0.2);
+      margin-top: 50px;
+      padding: 30px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Header and subheader styling */
+    h1, h2 {
+      color: #f8eba2;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      animation: fadeInDown 1.5s ease-out;
     }
 
     h2 {
-      color: #f3ca5b;
-      font-weight: 700;
+      font-size: 28px;
+      margin-top: 20px;
+      animation: fadeInUp 1.2s ease-out;
     }
 
+    /* Form styling */
     form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-section {
-      padding: 20px;
-      background-color: #1a1a1a;
-      margin-bottom: 20px;
-      border: 2px solid #6666ff; /* Purple outline */
-      border-radius: 8px;
-      color: #f3ca5b;
+      animation: fadeInLeft 1s ease-out;
     }
 
     label {
+      color: #f8eba2;
       font-weight: 500;
-      margin-bottom: 8px;
-      color: #f3ca5b;
     }
 
-    input[type="text"], input[type="email"], input[type="date"], textarea, select, input[type="submit"], input[type="button"] {
+    input, textarea {
+      width: 100%;
       padding: 10px;
-      margin-bottom: 10px;
+      margin: 10px 0;
+      background-color: #2a2a2a;
+      color: #eae7d6;
+      border: 1px solid #f8eba2;
       border-radius: 5px;
-      font-size: 16px;
-      width: 100%;
-      border: 1px solid #302038d7;
-      background-color: #171717;
-      color: #f3ca5b;
     }
 
-    input[type="submit"], input[type="button"] {
-      background-color: #6666ff; /* Purple button */
-      color: #f3ca5b;
+    input[type="submit"] {
+      background-color: #eec626;
+      border: none;
+      color: #1a1a1a;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
 
-    input[type="submit"]:hover, input[type="button"]:hover {
-      background-color: #321aa0;
+    input[type="submit"]:hover {
+      background-color: #f8eba2;
     }
 
-    .age-range {
-      margin-bottom: 25px;
-    }
-
-    .age-range-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      color: #f3ca5b;
-      margin-top: 5px;
-    }
-
-    input[type="range"] {
-      width: calc(100% - 20px);
-      margin-left: 10px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      color: #f3ca5b;
-    }
-
-    th, td {
+    /* Footer styling */
+    footer {
+      background-color: #1a1a1a;
+      color: #f8f7f3;
       text-align: center;
-      padding: 8px;
-      border: 1px solid #6666ff;
+      padding: 15px 0;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Fade in animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
-
-  <script>
-    // Function to save form data into localStorage
-    function saveData() {
-      localStorage.setItem("name", document.getElementById("name").value);
-      localStorage.setItem("email", document.getElementById("email").value);
-      localStorage.setItem("appointmentDate", document.getElementById("appointmentDate").value);
-      localStorage.setItem("gender", document.querySelector('input[name="gender"]:checked')?.value);
-      localStorage.setItem("ageGroup", document.getElementById("ageGroup").value);
-      localStorage.setItem("socialMedia", Array.from(document.querySelectorAll('input[name="socialMedia"]:checked')).map(el => el.value).join(", "));
-      localStorage.setItem("portfolioAsset", document.getElementById("MostImportantAsset").value);
-      localStorage.setItem("message", document.getElementById("message").value);
-      alert("Form data saved successfully!");
-    }
-
-    // Function to clear form data and reset all fields
-    function clearForm() {
-      document.querySelector("form").reset(); // Reset form fields
-      localStorage.clear(); // Clear localStorage
-      alert("Form cleared!");
-    }
-  </script>
 </head>
-
 <body>
 
 <!-- Header Section -->
@@ -141,119 +135,35 @@
   <h1>Contact Me</h1>
 </header>
 
-<!-- Content Section -->
-<div class="content">
-  <h2>Get In Touch</h2>
-  <p>If you have any questions, feel free to send me a message using the form below:</p>
-  
-  <form onsubmit="saveData(); return false;">
-    <!-- Full Name Section -->
-    <div class="form-section">
+<!-- Main Content Section -->
+<div class="container content">
+  <h2>Get in Touch</h2>
+  <p>If you would like to reach out to me, feel free to fill out the form below or send me an email!</p>
+
+  <!-- Contact Form -->
+  <form action="#" method="post">
+    <div class="form-group">
       <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
     </div>
-
-    <!-- Email Section -->
-    <div class="form-section">
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
     </div>
-
-    <!-- Appointment Date Section -->
-    <div class="form-section">
-      <label for="appointmentDate">Preferred Appointment Date:</label>
-      <input type="date" id="appointmentDate" name="appointmentDate" required>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
     </div>
-
-    <!-- Gender Radio Group Section -->
-    <div class="form-section">
-      <label>Gender:</label>
-      <label><input type="radio" name="gender" value="male" required> Male</label>
-      <label><input type="radio" name="gender" value="female"> Female</label>
-      <label><input type="radio" name="gender" value="other"> Other</label>
-    </div>
-
-    <!-- Age Group Scale Section with Labels -->
-    <div class="form-section age-range">
-      <label for="ageGroup">Age Group:</label>
-      <input type="range" id="ageGroup" name="ageGroup" min="1" max="5" step="1">
-      <div class="age-range-labels">
-        <span>18-24</span>
-        <span>25-34</span>
-        <span>35-44</span>
-        <span>45-54</span>
-        <span>55+</span>
-      </div>
-    </div>
-
-    <!-- Checkbox Grid for Page Rating Section -->
-    <div class="form-section">
-      <label>Rate the following aspects of this page:</label>
-      <table>
-        <tr>
-          <th></th>
-          <th>Poor</th>
-          <th>Average</th>
-          <th>Good</th>
-          <th>Excellent</th>
-        </tr>
-        <tr>
-          <td>Loading Speed</td>
-          <td><input type="checkbox" name="loadingSpeed" value="Poor"></td>
-          <td><input type="checkbox" name="loadingSpeed" value="Average"></td>
-          <td><input type="checkbox" name="loadingSpeed" value="Good"></td>
-          <td><input type="checkbox" name="loadingSpeed" value="Excellent"></td>
-        </tr>
-        <tr>
-          <td>Ease of Use on Mobile</td>
-          <td><input type="checkbox" name="mobileEase" value="Poor"></td>
-          <td><input type="checkbox" name="mobileEase" value="Average"></td>
-          <td><input type="checkbox" name="mobileEase" value="Good"></td>
-          <td><input type="checkbox" name="mobileEase" value="Excellent"></td>
-        </tr>
-        <tr>
-          <td>Ease of Navigation</td>
-          <td><input type="checkbox" name="navigationEase" value="Poor"></td>
-          <td><input type="checkbox" name="navigationEase" value="Average"></td>
-          <td><input type="checkbox" name="navigationEase" value="Good"></td>
-          <td><input type="checkbox" name="navigationEase" value="Excellent"></td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Social Media Preference Checkbox Section -->
-    <div class="form-section">
-      <label>Preferred Social Media Platform:</label>
-      <label><input type="checkbox" name="socialMedia" value="Instagram"> Instagram</label>
-      <label><input type="checkbox" name="socialMedia" value="LinkedIn"> LinkedIn</label>
-      <label><input type="checkbox" name="socialMedia" value="X"> X</label>
-      <label><input type="checkbox" name="socialMedia" value="WhatsApp"> WhatsApp</label>
-    </div>
-
-    <!-- Important Assets Dropdown Section -->
-    <div class="form-section">
-      <label for="MostImportantAsset">Most Important Asset in Portfolio:</label>
-      <select id="MostImportantAsset" name="MostImportantAsset">
-        <option value="Projects">Projects</option>
-        <option value="Certificates">Certificates</option>
-        <option value="Work Experience">Work Experience</option>
-      </select>
-    </div>
-
-    <!-- Message Section -->
-    <div class="form-section">
-      <label for="message">Your Message:</label>
-      <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
-    </div>
-
-    <!-- Submit and Clear Buttons Section -->
-    <div class="form-section">
-      <input type="submit" value="Send Message">
-      <input type="button" value="Clear Form" onclick="clearForm()">
-    </div>
-
+    <input type="submit" value="Send Message">
   </form>
 </div>
+
+<!-- Footer Section -->
+<footer>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

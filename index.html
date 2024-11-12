@@ -2,275 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Syed's Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-
   <style>
-    /* Global font & background */
+    /* Custom Styling */
     body {
-        background-color: #262626;
-        color: #eec626;
+        background-color: #75929b;
+        color: #ece7d4;
         font-family: 'Roboto', sans-serif;
-        font-size: 16px;
-        margin: 0;
-        padding: 0;
     }
-
-    /* Navigation bar styling */
     nav {
         background-color: #1a1a1a;
-        color: #e7ca27;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
+        color: #f6f5f0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 0 15px;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 15px 20px;
-        text-decoration: none;
-        color: #5500ff;
+    nav a {
+        color: #75929b;
         font-weight: 500;
-        transition: color 0.3s ease, background-color 0.3s ease;
     }
-
-    nav ul li a:hover {
-        color: #7f33ff;
+    nav a:hover {
+        color: #eec626;
         background-color: #333333;
     }
-
-    /* Image container styling */
-    #imageContainer img {
-        width: 120px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: transform 0.3s ease;
+    
+    /* Intro settings */
+    .main-content {
+        padding-top: 80px;
+        color: #eae5d1;
     }
-
-    #imageContainer img:hover {
-        transform: scale(1.05);
-    }
-
-    /* Modal styling */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        animation: fadeIn 0.5s;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        padding: 10px;
+    .hero-card {
+        background-color: #333333;
+        color: #eec626;
+        border: 2px solid #eec626;
         border-radius: 10px;
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
-    }
-
-    .modal-content img {
-        width: 50%;
-        height: auto;
-        border-radius: 5px;
-    }
-
-    .close {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #5500ff;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.3s ease;
-    }
-
-    .close:hover {
-        color: #7f33ff;
-    }
-
-    /* Main content styling */
-    .content-style {
-        max-width: 900px;
-        margin: 100px auto 20px;
         padding: 20px;
-        background-color: #333333;
-        border-radius: 10px;
         box-shadow: 0px 4px 8px rgba(85, 0, 255, 0.2);
+        position: relative;
     }
 
-    h1, h2, h3 {
-        color: #6666ff;
-        font-weight: 700;
-        margin: 20px 0;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    /* Button styling */
-    #promptButton {
-        background-color: #6666ff;
-        color: rgb(241, 203, 30);
-        padding: 10px 20px;
-        border: none;
+    /* Button settings */
+    .btn-custom {
+        background-color: #352a10;
+        color: #e9e5d3;
         border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 500;
-        margin-top: 20px;
+        margin-right: 10px;
+        transition: transform 0.2s ease, background-color 0.3s ease;
     }
-
-    #promptButton:hover {
-        background-color: #7f33ff;
+    .btn-custom:hover {
+        background-color: #1e1807;
+        transform: scale(1.1);
     }
-
-    /* Footer styling */
+    
     footer {
         background-color: #1a1a1a;
         color: #eac42d;
-        text-align: center;
         padding: 15px 0;
-        font-size: 14px;
-        font-weight: 500;
+        text-align: center;
+    }
+
+    /* Style for highlighted name */
+    .name-highlight {
+        color: #504b33;
+        font-weight: 700;
+    }
+
+    /* Typewriter effect */
+    .typewriter h1 {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid #504b33;
+      animation: typing 3.5s steps(30, end) forwards;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    /* Horizontal line styling */
+    .divider {
+        border-top: 2px solid #eec626;
+        margin: 20px 0;
+    }
+
+    /* Image styling */
+    .profile-image {
+        float: right;
+        width: 300px;
+        margin-left: 20px;
     }
   </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const modal = document.getElementById("imageModal");
-      const img = document.getElementById("myImage");
-      const modalImg = document.getElementById("modalImage");
-      const closeBtn = document.getElementsByClassName("close")[0];
-
-      img.onclick = function () {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-      }
-
-      closeBtn.onclick = function () {
-        modal.style.display = "none";
-      }
-
-      window.onclick = function (event) {
-        if (event.target === modal) {
-          modal.style.display = "none";
-        }
-      }
-
-      document.getElementById("promptButton").onclick = function () {
-        const name = prompt("Enter your name:");
-        document.getElementById("output").innerText = name ? `Hello, ${name}!` : "";
-      }
-    });
-  </script>
 </head>
-
 <body>
 
-<!-- Navigation Menu -->
-<nav>
-  <ul>
-    <!-- Update href to the correct paths of your files -->
-    <li><a href="About.html" target="_blank">About</a></li>
-    <li><a href="Contact.html" target="_blank">Contact</a></li>
-    <li><a href="https://www.linkedin.com/in/ali-syed-335554236/" target="_blank">LinkedIn</a></li>
-  </ul>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Ali Syed</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="Work_Experience.html" target="_blank">Work Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="About.html" target="_blank">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="Contact.html" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<!-- Main Content Style -->
-<div class="content-style">
-  <h1>My Homepage</h1>
-
-  <!-- Image with modal functionality -->
-  <div id="imageContainer">
-    <img id="myImage" src="My_Pic.jpg" alt="A photo of Ali Syed" style="width:200px; cursor:pointer;">
-  </div>
-
-  <!-- Modal for enlarged image view -->
-  <div id="imageModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-      <img id="modalImage" alt="Enlarged view of the image">
-    </div>
-  </div>
-
-  <!-- Button to prompt the user -->
-  <button id="promptButton">Enter your name</button>
-  <p id="output"></p>
-
-  <!-- Education Section -->
-  <h2>Education</h2>
-  <hr>
-  <ol>
-    <li>Erindale Secondary School (2016 - 2020)</li>
-    <li>Ryerson University (2021 - Present)</li>
-  </ol>
-
-  <!-- Courses Section -->
-  <h3>Courses</h3>
-  <p>ITM780 is a course focused on the fundamentals of web design along with learning CSS and Javascript.</p>
-  <hr>
-
-  <!-- Educational Awards Section -->
-  <h3>Educational Awards</h3>
-  <ul>
-    <li>Tableau/Power BI Certificate</li>
-  </ul>
-
-  <!-- Links and Descriptions -->
-  <div class="table-container">
-    <div class="table-row">
-      <div class="table-cell">
-        <a href="https://www.youtube.com" style="color: #6666ff;">Visit Youtube.com</a>
+<!-- Main Content -->
+<div class="container main-content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="typewriter">
+        <h1 id="introText">Hi, I'm <span class="name-highlight">Ali Syed</span></h1>
       </div>
-      <div class="table-cell">
-        <p>Youtube is a video-sharing platform where users can watch, like, share, comment, and upload their own videos.</p>
+      <p style="font-size: 20px;">Business Technology Management Student</p>
+      <hr class="divider">
+      <div>
+        <button class="btn btn-custom" onclick="hireMePrompt()">Hire Me</button>
+        <a href="Work_Experience.html" class="btn btn-custom" target="_blank">See Experience</a>
       </div>
     </div>
-
-    <div class="table-row">
-      <div class="table-cell">
-        <a href="https://www.w3schools.com" style="color: #6666ff;">Visit w3schools.com</a>
-      </div>
-      <div class="table-cell">
-        <p>W3Schools offers free tutorials and references for web development languages like HTML, CSS, JavaScript, and more.</p>
-      </div>
+    <div class="col-md-6">
+      <img src="My_Pic2.png" id="myImage" class="img-fluid rounded profile-image" alt="Ali Syed's Picture" style="cursor: pointer; width: 400px; height: 650px;">
     </div>
   </div>
 </div>
 
-<!-- Footer -->
+<!-- Footer with Social Media Links -->
 <footer>
-  &copy; 2024 Ali Syed. All rights reserved.
+  <div style="margin-top: 20px;">
+    <div style="margin-bottom: 50px;">
+      <a href="https://www.linkedin.com/in/ali-itrc/" target="_blank">
+        <img src="linkedin_icon.webp" alt="LinkedIn" style="width: 30px; margin: 0 10px;">
+      </a>
+      <a href="https://github.com/s21ali/s21ali.github.io" target="_blank">
+        <img src="github_icon.webp" alt="GitHub" style="width: 30px; margin: 0 10px;">
+      </a>
+      <a href="https://www.instagram.com/rcalisyed/" target="_blank">
+        <img src="instagram_icon.webp" alt="Instagram" style="width: 50px; height: 50px; margin: 0 10px;">
+      </a>
+    </div>
+  </div>
 </footer>
+
+<!-- JavaScript & Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function hireMePrompt() {
+    const response = prompt("Why would you like to hire me?");
+    if (response) {
+      alert("Thank you for your response: " + response);
+    } else {
+      alert("No response provided.");
+    }
+  }
+  
+  // Stop typewriter animation after completion
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      const introText = document.getElementById('introText');
+      introText.style.borderRight = "none"; // Remove blinking caret after typing is done
+    }, 3500); // Match with the animation duration
+  });
+</script>
 
 </body>
 </html>
