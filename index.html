@@ -12,6 +12,7 @@
         background-color: #75929b;
         color: #ece7d4;
         font-family: 'Roboto', sans-serif;
+        font-size: 16px; /* Default font size */
     }
     nav {
         background-color: #1a1a1a;
@@ -92,6 +93,45 @@
         width: 300px;
         margin-left: 20px;
     }
+
+    /* High Contrast Color Scheme */
+    .high-contrast {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Enlarge Text */
+    .large-text {
+      font-size: 1.5em; /* Enlarge all text */
+    }
+
+    /* Targeting all text on the page for enlargement */
+    * {
+      transition: font-size 0.3s ease;
+    }
+
+    /* Gallery Styling */
+.gallery {
+    display: flex;
+    gap: 20px; /* Space between images */
+    justify-content: center; /* Center images */
+    margin-bottom: 20px;
+}
+
+.gallery-image {
+    position: relative;
+}
+
+/* Custom Positioning for Button */
+.btn-container {
+    margin-top: 30px; /* Adjust this to move the button closer to the images */
+    text-align: left; /* Align the button to the left */
+    width: 100%; /* Ensure the button takes full width */
+    display: flex;
+    justify-content: flex-start; /* Align the button to the left */
+}
+
+    
   </style>
 </head>
 <body>
@@ -113,6 +153,12 @@
   </div>
 </nav>
 
+<!-- Accessibility Buttons -->
+<div class="container mt-4">
+  <button class="btn btn-info" id="enlargeTextBtn">Enlarge Text</button>
+  <button class="btn btn-warning" id="changeColorSchemeBtn">Change Color Scheme</button>
+</div>
+
 <!-- Main Content -->
 <div class="container main-content">
   <div class="row">
@@ -126,12 +172,102 @@
         <button class="btn btn-custom" onclick="hireMePrompt()">Hire Me</button>
         <a href="Work_Experience.html" class="btn btn-custom" target="_blank">See Experience</a>
       </div>
-    </div>
+
+      <!-- Custom Audio Player -->
+      <div class="mt-4">
+          <audio id="audio" src="Stan Getz & João Gilberto - Para Machuchar Meu Coração.mp3"></audio>
+          <button id="playPauseBtn" class="btn btn-primary">Play</button>
+          <button id="stopBtn" class="btn btn-secondary">Stop</button>
+         
+         <!-- Volume control with caption -->
+    <figure>
+      <input id="volumeControl" type="range" min="0" max="1" step="0.1" value="0.5" class="form-range">
+      <figcaption style="text-align: left; color: #ece7d4; margin-top: 5px; font-size: 10px;">
+        Getz, S., & Gilberto, J. (1964).<br>
+        Para Machuchar Meu Coração.<br>
+        On <em>Getz/Gilberto</em> [Album].<br>
+        Verve Records.
+    </figcaption>
+    
+        </figure>
+      </div>
+
+      <style>
+        /* Adjust the volume control width */
+        #volumeControl {
+          width: 100px; /* Adjust this value to make it larger or smaller */
+        }
+      </style>
+
+      <!-- End of Custom Audio Player -->
+
+</div>
     <div class="col-md-5">
       <img src="My_Pic2.png" id="myImage" class="img-fluid rounded profile-image" alt="Ali Syed's Picture" style="cursor: pointer; width: 450px; height: 600px;">
     </div>
-  </div>
 </div>
+
+<style>
+  /* Other CSS styles */
+
+  /* Image styling */
+  .profile-image {
+      float: left;
+      width: 300px;
+      height: 1500px;
+      margin-left: 20px;
+      margin-top: 5px; /* Adjust this value to move the image lower */
+  }
+
+  /* Other CSS styles */
+</style>
+
+    <!-- Photo Gallery with Accessibility Feature -->
+  <h2>Photo Gallery with Accessibility Feature</h2>
+  
+  <div class="row">
+    <!-- Image 1 -->
+    <div class="col-md-2 text-center gallery-image">
+      <img src="Soprano_house.jpg" alt="Soprano house picture taken by me August, 2023." class="img-fluid mb-2">
+      <p class="text-muted">Soprano house picture taken by me August, 2023</p>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="col-md-2 text-center gallery-image">
+      <img src="One_world_trade_center.jpg" alt="A picture of one world trade center in New York by me August, 2023" class="img-fluid mb-2">
+      <p class="text-muted">A picture of one world trade center in New York by me August, 2023</p>
+    </div>
+
+    <!-- Image 3 -->
+    <div class="col-md-2 text-center gallery-image">
+      <img src="Pizza_time.jpg" alt="The pizza shop from Spider-man 2 taken by me August 2023." class="img-fluid mb-2">
+      <p class="text-muted">The pizza shop from Spider-man 2 taken by me August 2023</p>
+    </div>
+  </div>
+
+  <!-- Button to Show Alt Text -->
+<div class="text-start mt-7">
+  <button class="btn btn-primary" id="showDescriptionsButton">Show Image Descriptions</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const showDescriptionsButton = document.getElementById('showDescriptionsButton');
+      
+      // Adding click event listener for the button
+      showDescriptionsButton.addEventListener('click', () => {
+          // Select only images within the gallery
+          const galleryImages = document.querySelectorAll('.gallery-image img');
+          
+          // Loop through the gallery images and show the descriptions
+          galleryImages.forEach((img, index) => {
+              setTimeout(() => {
+                  alert(`Image ${index + 1} Description: ${img.alt}`);
+              }, index * 1000); // Delay each alert by 1 second
+          });
+      });
+  });
+</script>
 
 <!-- Footer with Social Media Links -->
 <footer>
@@ -161,13 +297,54 @@
       alert("No response provided.");
     }
   }
-  
+
   // Stop typewriter animation after completion
   document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
       const introText = document.getElementById('introText');
       introText.style.borderRight = "none"; // Remove blinking caret after typing is done
     }, 3500); // Match with the animation duration
+  });
+
+  // Accessibility Buttons Script
+  const enlargeTextBtn = document.getElementById('enlargeTextBtn');
+  const changeColorSchemeBtn = document.getElementById('changeColorSchemeBtn');
+
+  enlargeTextBtn.addEventListener('click', function() {
+    document.body.classList.toggle('large-text');
+  });
+
+  changeColorSchemeBtn.addEventListener('click', function() {
+    document.body.classList.toggle('high-contrast');
+  });
+
+  // Custom Audio Player Script
+  const audio = document.getElementById('audio');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const stopBtn = document.getElementById('stopBtn');
+  const volumeControl = document.getElementById('volumeControl');
+
+  // Toggle Play/Pause
+  playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+          audio.play();
+          playPauseBtn.textContent = 'Pause';
+      } else {
+          audio.pause();
+          playPauseBtn.textContent = 'Play';
+      }
+  });
+
+  // Stop Audio
+  stopBtn.addEventListener('click', () => {
+      audio.pause();
+      audio.currentTime = 0;
+      playPauseBtn.textContent = 'Play';
+  });
+
+  // Adjust Volume
+  volumeControl.addEventListener('input', (e) => {
+      audio.volume = e.target.value;
   });
 </script>
 
