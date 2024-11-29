@@ -1,0 +1,8 @@
+.pic_boarder {
+    float: right; /* Aligns the image to the right */
+    width: 300px; /* Adjust image width */
+    margin-left: 20px; /* Adds spacing to the left of the image */
+    border: 5px solid #eec626; /* Frame color */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
+}
